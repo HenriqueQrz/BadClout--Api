@@ -1,0 +1,16 @@
+[
+    {
+        "_id": "2f1e8244-05bc-40b8-9e8c-78e69c37d457",
+        "colId": "history",
+        "containerId": "",
+        "name": "https://localhost:5000/produto",
+        "url": "https://localhost:5000/produto",
+        "method": "GET",
+        "sortNum": 0,
+        "created": "2023-09-18T00:33:51.592Z",
+        "modified": "2023-09-18T00:33:51.592Z",
+        "headers": [],
+        "params": [],
+        "tests": []
+    }
+]
