@@ -23,6 +23,15 @@ export async function inserir(produto) {
   return produto;
 }
 
+//consultar todos clientes
+export async function consultarClientes(){
+  const comando = `
+    SELECT * FROM TB_CLIENTE;  
+  `
+  const [resp] = await con.query(comando);
+  return resp;
+}
+
 
 export async function consultar(busca) {
   let comando = `

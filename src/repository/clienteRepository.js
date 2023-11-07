@@ -65,4 +65,18 @@ export async function alterar(id, cliente) {
     ])
   
   return resp.affectedRows;
+
+}
+
+export async function login(email,senha){
+  const resposta = `
+        select ID_CLIENTE,
+          DS_EMAIL	EMAIL,
+              NM_CLIENTE	CLIENTE
+        FROM TB_CLIENTE
+        WHERE DS_EMAIL =?
+          AND DS_SENHA = ? `
+
+      const [resp] = await con.query(resposta, [email,senha]);
+      return resp[0];
 }
