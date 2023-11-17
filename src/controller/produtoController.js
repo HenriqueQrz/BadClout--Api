@@ -24,14 +24,8 @@ endpoints.post('/produto', async (req, resp) => {
     if (!produto.tamanho)
     throw new Error('Tamanho obrigatório');
 
-    if (!produto.destaque)
-    throw new Error('Campo obrigatório');
-
-    if (!produto.disponivel)
-    throw new Error('Campo obrigatório');
-
     if (!produto.estoque)
-    throw new Error('Campo obrigatório');
+    throw new Error('Campo estoque obrigatório');
     
     let r1 = await buscarCategoriaPorId(produto.idcategoria);
     if (r1.length == 0)
@@ -45,8 +39,6 @@ endpoints.post('/produto', async (req, resp) => {
   catch (err) {
     resp.status(500).send({ erro: err.message });
   }
-  
-
 })
 
 
@@ -58,16 +50,6 @@ endpoints.put('/produto/:id', async (req, resp) => {
   try {
     let produto = req.body;
     let id = req.params.id;
-
-    if (!produto.modelo)
-      throw new Error('Modelo obrigatório');
-
-      if (!produto.marca)
-      throw new Error('Marca obrigatória');
-
-    if (!produto.preco || isNaN(produto.preco))
-      throw new Error('preço deve ser um número')
-
 
     
     let r2 = await buscarCategoriaPorId(produto.idcategoria);

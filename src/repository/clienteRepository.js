@@ -40,6 +40,18 @@ export async  function consultar(nome) {
 }
 
 
+//consultar todos clientes
+export async function consultarClientes(){
+  const comando = `
+    SELECT * FROM TB_CLIENTE;  
+  `
+  const [resp] = await con.query(comando);
+  return resp;
+}
+
+
+
+
 
 export async function alterar(id, cliente) {
   let comando = `
@@ -74,6 +86,20 @@ export async function login(email,senha){
           DS_EMAIL	EMAIL,
               NM_CLIENTE	CLIENTE
         FROM TB_CLIENTE
+        WHERE DS_EMAIL =?
+          AND DS_SENHA = ? `
+
+      const [resp] = await con.query(resposta, [email,senha]);
+      return resp[0];
+}
+
+//login adm
+export async function loginAdm(email,senha){
+  const resposta = `
+        select ID_ADM,
+          DS_EMAIL	EMAIL,
+              NM_ADM	ADM
+        FROM TB_ADM
         WHERE DS_EMAIL =?
           AND DS_SENHA = ? `
 
