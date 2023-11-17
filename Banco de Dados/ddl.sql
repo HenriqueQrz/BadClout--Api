@@ -1,4 +1,5 @@
 
+oi
 
 INSERT INTO TB_CLIENTE (nm_cliente, nm_sobrenome , ds_telefone, ds_cpf, ds_email, ds_senha)
                       VALUES ('', '', '', '', '' , '' );
